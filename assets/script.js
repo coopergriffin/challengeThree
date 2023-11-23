@@ -27,14 +27,28 @@ function writePassword() {
 //function to generate and return a string password
 function generatePassword(pLength) {
 
-  //bass charset, will update later
-  var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    var password = "";
-    for (var i = 0; i < pLength; i++) {
-        var randomIndex = Math.floor(Math.random() * charset.length);
-        password += charset.charAt(randomIndex);
-    }
-    return password;
+  //Adds characters to charset passed off user input to prompts 
+  charset = "";
+  if(confirm("Include lowercase characters?")){
+    charset += "abcdefghijklmnopqrstuvwxyz";
+  }
+  if(confirm("Include UPPERCASE characters?")){
+    charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  }
+  if(confirm("Include numeric characters?")){
+    charset += "0123456789";
+  }
+  if(confirm("Include special characters?")){
+    charset += "!@#$%^&*()-=_+[]{}|;:,.<>?";
+  }
+  
+
+  var password = "";
+  for (var i = 0; i < pLength; i++) {
+      var randomIndex = Math.floor(Math.random() * charset.length);
+      password += charset.charAt(randomIndex);
+  }
+  return password;
 }
 
 // Add event listener to call function writePassword when clicked 
