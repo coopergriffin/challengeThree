@@ -42,6 +42,11 @@ function generatePassword(pLength) {
     charset += "!@#$%^&*()-=_+[]{}|;:,.<>?";
   }
   
+  //checks if user selected to include any of the given character types. If not a default charset is given
+  if(charset === ""){
+    alert("You selected to include none of the character so you are getting only lowercase whether you like it or not");
+    charset += "abcdefghijklmnopqrstuvwxyz";
+  }
 
   var password = "";
   for (var i = 0; i < pLength; i++) {
